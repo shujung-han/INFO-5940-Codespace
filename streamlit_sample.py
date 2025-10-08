@@ -1,7 +1,11 @@
 import streamlit as st
 from openai import OpenAI
+import os
 
-client = OpenAI()
+client = OpenAI(
+	api_key=os.environ["API_KEY"],
+	base_url="https://api.ai.it.cornell.edu",
+)
 
 #Read knowledge base from data/important_knowledge.txt
 with open("data/important_knowledge.txt", "r") as f:
